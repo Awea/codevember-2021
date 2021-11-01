@@ -1,0 +1,16 @@
+# Node.js
+node_modules/
+*.log
+
+# Deployment
+.env
+
+# Site build folder
+!site/
+site/*
+!site/index.html
+!site/assets
+src/assets
+
+# Stuff
+.todo
