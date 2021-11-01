@@ -18,7 +18,6 @@ My contribution for codevember 2021.
 - [**asdf**](https://github.com/asdf-vm/asdf)
 - [**Make**](https://www.gnu.org/software/make/)
 - [**Node.js**](https://nodejs.org)
-- [**Yarn**](https://yarnpkg.com)
 
 <a name="commands"></a>
 ## ⌨️ Commands
@@ -29,7 +28,7 @@ My contribution for codevember 2021.
 make
 ```
 
-💡 This command will also **install dependencies** on first run and when `package.json` or `yarn.lock` files are updated.
+💡 This command will also **install dependencies** on first run and when `package.json` or `package-lock.json` files are updated.
 
 ### Build
 ```makefile
@@ -38,7 +37,7 @@ make
 make build
 ```
 
-💡 This command will also **install dependencies** on first run and when `package.json` or `yarn.lock` files are updated.
+💡 This command will also **install dependencies** on first run and when `package.json` or `package-lock.json` files are updated.
 
 ### Deploy
 ```makefile
