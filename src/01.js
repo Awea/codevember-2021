@@ -1,19 +1,19 @@
-const canvasSketch   = require('canvas-sketch')
+const canvasSketch = require('canvas-sketch')
 const { rangeFloor } = require('canvas-sketch-util/random')
 
 const settings = {
   // Enable an animation loop
-  animate: true
+  animate: true,
 }
 
-function addGrid(context, width, height, display = true){
+function addGrid(context, width, height, display = true) {
   const cellSize = 50
   let xCells = 0
   let yCells = 0
   let borderX = width % cellSize
   borderX = borderX > 0 ? borderX / 2 : borderX
 
-  for (var i = borderX; i < width - borderX + cellSize; i+=cellSize) {
+  for (var i = borderX; i < width - borderX + cellSize; i += cellSize) {
     if (display) {
       context.beginPath()
       context.strokeStyle = '#ECEFF1'
@@ -27,7 +27,7 @@ function addGrid(context, width, height, display = true){
   let borderY = height % cellSize
   borderY = borderY > 0 ? borderY / 2 : borderY
 
-  for (var i = borderY; i < height - borderY + cellSize; i+=cellSize) {
+  for (var i = borderY; i < height - borderY + cellSize; i += cellSize) {
     if (display) {
       context.beginPath()
       context.strokeStyle = '#ECEFF1'
@@ -43,13 +43,13 @@ function addGrid(context, width, height, display = true){
     borderY: borderY,
     borderX: borderX,
     xCells: xCells,
-    yCells: yCells
+    yCells: yCells,
   }
 }
 
-const light_blue  = '#CFD8DC'
+const light_blue = '#CFD8DC'
 const medium_blue = '#607D8B'
-const heavy_blue  = '#2E3561'
+const heavy_blue = '#2E3561'
 
 let cells = []
 
@@ -68,13 +68,15 @@ canvasSketch(() => {
 
     let xCell = rangeFloor(grid.xCells - 1)
     let yCell = rangeFloor(grid.yCells - 1)
-    let existingCellIndex = cells.findIndex(cell => cell.x == xCell && cell.y == yCell)
+    let existingCellIndex = cells.findIndex(
+      (cell) => cell.x == xCell && cell.y == yCell
+    )
 
-    if (existingCellIndex != -1){
+    if (existingCellIndex != -1) {
       cell = cells[existingCellIndex]
       color = cell.color
 
-      if (color == medium_blue){
+      if (color == medium_blue) {
         color = heavy_blue
       } else if (color == heavy_blue) {
         color = light_blue
@@ -82,14 +84,19 @@ canvasSketch(() => {
         color = medium_blue
       }
 
-      cells.splice(existingCellIndex, 1, {...cell, color: color})
+      cells.splice(existingCellIndex, 1, { ...cell, color: color })
     } else {
-      cells.push({x: xCell, y: yCell, color: medium_blue})
+      cells.push({ x: xCell, y: yCell, color: medium_blue })
     }
 
     cells.forEach((cell, cellIndex) => {
       context.fillStyle = cell.color
-      context.fillRect(cell.x * grid.cellSize, cell.y * grid.cellSize, grid.cellSize, grid.cellSize)
+      context.fillRect(
+        cell.x * grid.cellSize,
+        cell.y * grid.cellSize,
+        grid.cellSize,
+        grid.cellSize
+      )
     })
-  };
-}, settings);
+  }
+}, settings)
