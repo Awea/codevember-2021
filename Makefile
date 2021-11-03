@@ -7,11 +7,14 @@
 SHELL := /usr/bin/env bash
 
 .PHONY: deps
-deps: node_modules
+deps: node_modules src/assets
 
 node_modules: package.json package-lock.json
 	@npm install
 	@touch $@
+
+src/assets:
+	@ln -s $(PWD)/site/assets $@
 
 CANVAS_SKETCH := $(PWD)/node_modules/.bin/canvas-sketch
 LATEST := $(shell ls src | grep -v assets | tail -n 1)
