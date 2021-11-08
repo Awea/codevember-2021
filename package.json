@@ -6,6 +6,7 @@
     "canvas-sketch": "^0.7.4",
     "canvas-sketch-cli": "^1.11.14",
     "canvas-sketch-util": "^1.10.0",
-    "load-asset": "^1.2.0"
+    "load-asset": "^1.2.0",
+    "two.js": "^0.7.8"
   }
 }
