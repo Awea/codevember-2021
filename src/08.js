@@ -23,8 +23,6 @@ const sketch = ({ canvas, width, height }) => {
   path.automatic = true
   two.add(path)
 
-  console.log(path)
-
   return {
     resize({ pixelRatio, width, height }) {
       // Update width and height of Two.js scene based on
